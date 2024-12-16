@@ -8,6 +8,6 @@ class AuthController
 {
     public function auth(AuthRequest $request)
     {
-        echo "ok";
+        echo 'ok';
     }
 }

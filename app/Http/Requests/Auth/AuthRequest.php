@@ -10,6 +10,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 class AuthRequest extends FormRequest
 {
     use ApiResponseTrait;
+
     /**
      * Determine if the user is authorized to make this request.
      */
@@ -25,12 +26,11 @@ class AuthRequest extends FormRequest
      */
     public function rules(): array
     {
-        return ["mobile" => "required|digits:11"];
+        return ['mobile' => 'required|digits:11'];
     }
 
     public function failedValidation(Validator $validator)
     {
-        throw new HttpResponseException($this->fail($validator->errors(), "Validation error", 400));
+        throw new HttpResponseException($this->fail($validator->errors(), 'Validation error', 400));
     }
-
 }
